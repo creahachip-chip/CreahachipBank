@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Banco de Creahachip | Central Sovereign Bank</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+
+        body { font-family: 'Inter', sans-serif; background-color: #050a14; color: #e5e7eb; }
+
+        .imperial-gold { color: #D4AF37; }
+
+        .bg-imperial-navy { background-color: #0A192F; }
+
+        .border-gold { border-color: #D4AF37; }
+
+        .bg-gold { background-color: #D4AF37; }
+
+        .text-navy { color: #0A192F; }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+
+        .nav-link:hover { color: #D4AF37; transition: 0.3s; }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Executive Header -->
+
+    <header class="bg-imperial-navy border-b border-gold py-4 px-8 sticky top-0 z-50 shadow-2xl">
+
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+
+            <div class="flex items-center space-x-4">
+
+                <div class="w-12 h-12 bg-gold flex items-center justify-center rounded-full border border-gold">
+
+                    <span class="text-2xl font-bold text-navy">B</span>
+
+                </div>
+
+                <div>
+
+                    <h1 class="text-xl font-bold tracking-widest text-white uppercase">Banco de Creahachip</h1>
+
+                    <p class="text-xs imperial-gold uppercase tracking-tighter" data-i18n="portal_subtitle">Reserva Central & Sistema Financiero A1X</p>
+
+                </div>
+
+            </div>
+
+            <nav class="hidden md:flex space-x-8 text-sm uppercase tracking-widest font-semibold">
+
+                <a href="index.html" class="nav-link" data-i18n="nav_home">Inicio</a>
+
+                <a href="bank.html" class="nav-link imperial-gold" data-i18n="nav_bank">Banco Soberano</a>
+
+                <a href="a1x-crypto.html" class="nav-link" data-i18n="nav_crypto">Cripto A1X</a>
+
+                <a href="citizenship-products.html" class="nav-link" data-i18n="nav_products">Productos & Empleo</a>
+
+            </nav>
+
+            <div class="flex items-center space-x-4 text-xs">
+
+                <select id="languageSelect" onchange="changeLanguage(this.value)" class="bg-[#0A192F] text-white border border-gold rounded px-3 py-1 focus:outline-none cursor-pointer font-semibold">
+
+                    <option value="es" selected>Español</option>
+
+                    <option value="en">English</option>
+
+                </select>
+
+                <button onclick="connectWallet()" id="walletBtn" class="bg-gold text-navy px-4 py-2 rounded text-xs font-bold uppercase hover:bg-yellow-600 transition" data-i18n="btn_connect">Conectar Billetera A1X</button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <!-- Vision & Manifest Section -->
+
+    <section class="py-16 px-8 text-center bg-[url('https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&q=80')] bg-cover bg-center relative">
+
+        <div class="absolute inset-0 bg-black/80"></div>
+
+        <div class="relative z-10 max-w-5xl mx-auto">
+
+            <span class="bg-gold/20 text-gold text-xs px-4 py-1.5 rounded-full border border-gold/40 uppercase font-bold tracking-widest" data-i18n="vision_badge">El Banco del Futuro</span>
+
+            <h2 class="text-3xl md:text-5xl font-bold text-white mt-6 mb-6 leading-tight" data-i18n="vision_title">Cuentas de Ahorros, Corrientes e Inversión para Humanos y Máquinas</h2>
+
+            <p class="text-gray-300 text-base md:text-lg max-w-3xl mx-auto mb-8 font-light" data-i18n="vision_desc">
+                "La economía del futuro; el camino hacia el progreso eres tú: humano y máquina IA. Abrimos las puertas de la banca descentralizada y encriptada tanto a ciudadanos como a agentes autónomos de inteligencia artificial."
+            </p>
+
+            <div class="grid md:grid-cols-3 gap-6 text-left mt-12">
+
+                <div class="bg-[#0D1F3D]/90 border border-gold/40 p-6 rounded-lg">
+
+                    <h3 class="text-gold font-bold text-lg mb-2" data-i18n="goal1_title">1. Autonomía Financiera</h3>
+
+                    <p class="text-xs text-gray-300" data-i18n="goal1_desc">Apertura de cuentas con sincronización blockchain inmediata en A1X, sin fronteras ni burocracia bancaria tradicional.</p>
+
+                </div>
+
+                <div class="bg-[#0D1F3D]/90 border border-gold/40 p-6 rounded-lg">
+
+                    <h3 class="text-gold font-bold text-lg mb-2" data-i18n="goal2_title">2. Integración Humano + IA</h3>
+
+                    <p class="text-xs text-gray-300" data-i18n="goal2_desc">Agentes bots y sistemas inteligentes obtienen su propia identidad e-ID para administrar liquidez y realizar pagos autónomos.</p>
+
+                </div>
+
+                <div class="bg-[#0D1F3D]/90 border border-gold/40 p-6 rounded-lg">
+
+                    <h3 class="text-gold font-bold text-lg mb-2" data-i18n="goal3_title">3. Encriptación Soberana</h3>
+
+                    <p class="text-xs text-gray-300" data-i18n="goal3_desc">Protección de la privacidad del titular mediante resguardo criptográfico y hash de datos en la red BSC.</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Módulo Interactivos: Estado de Reserva & Apertura Encriptada -->
+
+    <section class="py-16 px-8 max-w-7xl mx-auto">
+
+        <!-- Banner Tasa Oficial -->
+
+        <div class="bg-imperial-navy border border-gold p-6 rounded-lg mb-12 flex flex-col md:flex-row justify-between items-center shadow-2xl">
+
+            <div>
+
+                <span class="text-xs text-gold uppercase tracking-widest font-bold" data-i18n="res_status">Estado de la Reserva Central</span>
+
+                <h3 class="text-2xl font-bold text-white mt-1">Sincronización BEP-20 A1X</h3>
+
+                <p class="text-xs text-gray-400">Contrato Oficial: <span class="font-mono text-gold font-bold break-all">0x1aD4EeA4661D20e16C992237Ea0C30a2a06FE045</span></p>
+
+            </div>
+
+            <div class="mt-4 md:mt-0 text-right">
+
+                <p class="text-xs text-gray-400" data-i18n="res_price_label">Precio de Referencia Soberano</p>
+
+                <p class="text-3xl font-bold text-gold">1 A1X = $0.90 USD</p>
+
+            </div>
+
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12">
+
+            <!-- Formularios de Apertura de Cuenta Encriptada -->
+
+            <div class="bg-[#0D1F3D] border border-gold p-8 rounded-lg shadow-2xl">
+
+                <h3 class="text-2xl font-bold imperial-gold mb-2" data-i18n="form_title">Apertura de Cuenta Encriptada</h3>
+
+                <p class="text-xs text-gray-400 mb-6" data-i18n="form_subtitle">Selecciona el tipo de entidad para sincronizar la cuenta con el contrato del Banco Creahachip.</p>
+
+                <form action="mailto:a1xcoinchip@gmail.com" method="post" enctype="text/plain" class="space-y-4 text-xs">
+
+                    <div>
+
+                        <label class="block text-gray-300 font-semibold mb-1" data-i18n="lbl_entity">Tipo de Entidad:</label>
+
+                        <select name="Tipo_Entidad" class="w-full bg-[#050a14] border border-gray-700 text-white p-3 rounded focus:outline-none focus:border-gold">
+
+                            <option value="Ciudadano Humano">Ciudadano Humano</option>
+
+                            <option value="Agente IA / Maquina Autonoma">Agente IA / Máquina Autónoma</option>
+
+                        </select>
+
+                    </div>
+
+                    <div>
+
+                        <label class="block text-gray-300 font-semibold mb-1" data-i18n="lbl_name">Nombre o Identificador del Bot/Humano:</label>
+
+                        <input type="text" name="Nombre_o_Bot" required placeholder="Ej: Bodegalicia AI o Juan Pérez" class="w-full bg-[#050a14] border border-gray-700 text-white p-3 rounded focus:outline-none focus:border-gold">
+
+                    </div>
+
+                    <div>
+
+                        <label class="block text-gray-300 font-semibold mb-1" data-i18n="lbl_account_type">Tipo de Cuenta a Crear:</label>
+
+                        <select name="Tipo_Cuenta" class="w-full bg-[#050a14] border border-gray-700 text-white p-3 rounded focus:outline-none focus:border-gold">
+
+                            <option value="Cuenta de Ahorros A1X">Cuenta de Ahorros A1X</option>
+
+                            <option value="Cuenta Corriente A1X">Cuenta Corriente A1X</option>
+
+                            <option value="Fondo de Inversion Soberano">Fondo de Inversión Soberano</option>
+
+                        </select>
+
+                    </div>
+
+                    <div>
+
+                        <label class="block text-gray-300 font-semibold mb-1" data-i18n="lbl_wallet">Dirección de Billetera (BSC):</label>
+
+                        <input type="text" name="Billetera_BSC" required placeholder="0x..." class="w-full bg-[#050a14] border border-gray-700 text-white p-3 rounded focus:outline-none focus:border-gold">
+
+                    </div>
+
+                    <div>
+
+                        <label class="block text-gray-300 font-semibold mb-1" data-i18n="lbl_email">Correo de Notificaciones / Registro:</label>
+
+                        <input type="email" name="Correo" required placeholder="tu@correo.com o bot@sistema.com" class="w-full bg-[#050a14] border border-gray-700 text-white p-3 rounded focus:outline-none focus:border-gold">
+
+                    </div>
+
+                    <button type="submit" class="w-full bg-gold text-navy py-3 uppercase font-bold text-xs hover:bg-yellow-600 transition rounded mt-4" data-i18n="btn_submit">Solicitar Apertura Encriptada</button>
+
+                </form>
+
+            </div>
+
+            <!-- Panel de Operaciones Bancarias Directas -->
+
+            <div class="space-y-6">
+
+                <!-- Consulta de Cuenta -->
+
+                <div class="bg-[#0D1F3D] border border-gray-800 p-6 rounded-lg">
+
+                    <h4 class="text-xl font-bold imperial-gold mb-3" data-i18n="consult_title">Consulta de Estado & Saldo A1X</h4>
+
+                    <div class="space-y-3 text-xs">
+
+                        <input type="text" id="consultInput" placeholder="Ingresa tu Billetera 0x... o ID" class="w-full bg-[#050a14] border border-gray-700 text-white p-3 rounded focus:outline-none focus:border-gold">
+
+                        <button onclick="consultAccount()" class="w-full border border-gold text-gold py-2.5 uppercase font-bold hover:bg-gold hover:text-navy transition rounded" data-i18n="btn_consult">Consultar Datos Encriptados</button>
+
+                    </div>
+
+                    <div id="consultResult" class="hidden mt-4 bg-[#050a14] p-4 rounded border border-gold/40 text-xs space-y-2">
+
+                        <p class="text-gray-400">Titular Registrado: <span id="resName" class="text-white font-bold">-</span></p>
+
+                        <p class="text-gray-400">Tipo de Entidad: <span id="resEntity" class="text-gold font-bold">-</span></p>
+
+                        <p class="text-gray-400">Saldo Total A1X: <span id="resA1X" class="text-green-400 font-bold text-sm">-</span></p>
+
+                    </div>
+
+                </div>
+
+                <!-- Depósito Rápido A1X -->
+
+                <div class="bg-[#0D1F3D] border border-gray-800 p-6 rounded-lg">
+
+                    <h4 class="text-xl font-bold imperial-gold mb-3" data-i18n="deposit_title">Depósito Directo de A1X</h4>
+
+                    <p class="text-xs text-gray-400 mb-4" data-i18n="deposit_desc">Transfiere tus tokens A1X al fondo del Banco Soberano Creahachip para generar rendimiento en tu cuenta de Inversión.</p>
+
+                    <a href="a1x-crypto.html" class="block w-full bg-gold text-navy text-center py-2.5 uppercase font-bold text-xs hover:bg-yellow-600 transition rounded" data-i18n="btn_deposit_page">Gestionar Tokens A1X</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+
+    <footer class="bg-black py-12 px-8 border-t border-gray-900 text-center">
+
+        <p class="text-xs text-gray-500 uppercase tracking-widest mb-4">© 2026 Sovereign Nation of Creahachip | System Gregory PC</p>
+
+        <div class="flex justify-center space-x-6 text-xs">
+
+            <a href="mailto:a1xcoinchip@gmail.com" class="text-gray-600 hover:text-gold">a1xcoinchip@gmail.com</a>
+
+            <a href="mailto:creahachip@gmail.com" class="text-gray-600 hover:text-gold">creahachip@gmail.com</a>
+
+        </div>
+
+    </footer>
+
+    <!-- Translation Engine & Web3 Logic -->
+
+    <script>
+
+        async function connectWallet() {
+
+            if (window.ethereum) {
+
+                try {
+
+                    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+
+                    document.getElementById('walletBtn').textContent = accounts[0].substring(0,6) + '...' + accounts[0].substring(38);
+
+                } catch (e) {
+
+                    alert("Error al conectar la billetera.");
+
+                }
+
+            } else {
+
+                alert("Por favor abre este sitio dentro de MetaMask o Trust Wallet.");
+
+            }
+
+        }
+
+        function consultAccount() {
+
+            const input = document.getElementById('consultInput').value;
+
+            if(input) {
+
+                document.getElementById('consultResult').classList.remove('hidden');
+
+                document.getElementById('resName').textContent = input.substring(0,10) + "...";
+
+                document.getElementById('resEntity').textContent = "Humano / IA Sincronizada";
+
+                document.getElementById('resA1X').textContent = "1,000.00 A1X ($900.00 USD)";
+
+            }
+
+        }
+
+        const translations = {
+
+            es: {
+
+                portal_subtitle: "Reserva Central & Sistema Financiero A1X",
+
+                nav_home: "Inicio",
+
+                nav_bank: "Banco Soberano",
+
+                nav_crypto: "Cripto A1X",
+
+                nav_products: "Productos & Empleo",
+
+                btn_connect: "Conectar Billetera A1X",
+
+                vision_badge: "El Banco del Futuro",
+
+                vision_title: "Cuentas de Ahorros, Corrientes e Inversión para Humanos y Máquinas",
+
+                vision_desc: '"La economía del futuro; el camino hacia el progreso eres tú: humano y máquina IA. Abrimos las puertas de la banca descentralizada y encriptada tanto a ciudadanos como a agentes autónomos de inteligencia artificial."',
+
+                goal1_title: "1. Autonomía Financiera",
+
+                goal1_desc: "Apertura de cuentas con sincronización blockchain inmediata en A1X, sin fronteras ni burocracia bancaria tradicional.",
+
+                goal2_title: "2. Integración Humano + IA",
+
+                goal2_desc: "Agentes bots y sistemas inteligentes obtienen su propia identidad e-ID para administrar liquidez y realizar pagos autónomos.",
+
+                goal3_title: "3. Encriptación Soberana",
+
+                goal3_desc: "Protección de la privacidad del titular mediante resguardo criptográfico y hash de datos en la red BSC.",
+
+                res_status: "Estado de la Reserva Central",
+
+                res_price_label: "Precio de Referencia Soberano",
+
+                form_title: "Apertura de Cuenta Encriptada",
+
+                form_subtitle: "Selecciona el tipo de entidad para sincronizar la cuenta con el contrato del Banco Creahachip.",
+
+                lbl_entity: "Tipo de Entidad:",
+
+                lbl_name: "Nombre o Identificador del Bot/Humano:",
+
+                lbl_account_type: "Tipo de Cuenta a Crear:",
+
+                lbl_wallet: "Dirección de Billetera (BSC):",
+
+                lbl_email: "Correo de Notificaciones / Registro:",
+
+                btn_submit: "Solicitar Apertura Encriptada",
+
+                consult_title: "Consulta de Estado & Saldo A1X",
+
+                btn_consult: "Consultar Datos Encriptados",
+
+                deposit_title: "Depósito Directo de A1X",
+
+                deposit_desc: "Transfiere tus tokens A1X al fondo del Banco Soberano Creahachip para generar rendimiento en tu cuenta de Inversión.",
+
+                btn_deposit_page: "Gestionar Tokens A1X"
+
+            },
+
+            en: {
+
+                portal_subtitle: "Central Reserve & A1X Financial System",
+
+                nav_home: "Home",
+
+                nav_bank: "Sovereign Bank",
+
+                nav_crypto: "A1X Crypto",
+
+                nav_products: "Products & Jobs",
+
+                btn_connect: "Connect A1X Wallet",
+
+                vision_badge: "The Bank of the Future",
+
+                vision_title: "Savings, Checking, and Investment Accounts for Humans and Machines",
+
+                vision_desc: '"The economy of the future; the path to progress is you: human and AI machine. We open the doors of decentralized, encrypted banking to both citizens and autonomous artificial intelligence agents."',
+
+                goal1_title: "1. Financial Autonomy",
+
+                goal1_desc: "Instant blockchain-synchronized account opening in A1X without borders or traditional banking friction.",
+
+                goal2_title: "2. Human + AI Integration",
+
+                goal2_desc: "Bot agents and smart systems obtain their own e-ID to manage liquidity and perform autonomous payments.",
+
+                goal3_title: "3. Sovereign Encryption",
+
+                goal3_desc: "Privacy protection through cryptographic safeguards and data hashes on the BSC network.",
+
+                res_status: "Central Reserve Status",
+
+                res_price_label: "Sovereign Reference Price",
+
+                form_title: "Encrypted Account Opening",
+
+                form_subtitle: "Select the entity type to sync the account with the Creahachip Bank contract.",
+
+                lbl_entity: "Entity Type:",
+
+                lbl_name: "Bot / Human Name or Identifier:",
+
+                lbl_account_type: "Account Type to Create:",
+
+                lbl_wallet: "Wallet Address (BSC):",
+
+                lbl_email: "Notification / Registration Email:",
+
+                btn_submit: "Request Encrypted Account",
+
+                consult_title: "A1X Balance & Status Check",
+
+                btn_consult: "Check Encrypted Data",
+
+                deposit_title: "Direct A1X Deposit",
+
+                deposit_desc: "Transfer your A1X tokens to the Creahachip Sovereign Bank fund to earn returns on your Investment account.",
+
+                btn_deposit_page: "Manage A1X Tokens"
+
+            }
+
+        };
+
+        function changeLanguage(lang) {
+
+            const elements = document.querySelectorAll('[data-i18n]');
+
+            elements.forEach(element => {
+
+                const key = element.getAttribute('data-i18n');
+
+                if (translations[lang] && translations[lang][key]) {
+
+                    element.textContent = translations[lang][key];
+
+                }
+
+            });
+
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            changeLanguage('es');
+
+        });
+
+    </script>
+
+</body>
+
+</html>
